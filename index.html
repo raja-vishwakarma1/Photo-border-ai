@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Borders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+            
+        }
+        
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            font-size: 24px;
+        }
+
+        .container {
+            margin: 124px auto;
+            width: 100%;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0 4px 8px red;
+            border-radius: 8px;
+            overflow: hidden;
+            min-height: 80vh;
+        }
+
+        .upload-section {
+            margin: 20px 0;
+           
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 10px auto;
+        }
+
+        .preview {
+            margin-top: 10px;
+      
+        }
+
+        canvas {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .border-controls {
+            margin: 20px 0;
+        }
+
+        input[type="number"] {
+            width: 60px;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        .download-button {
+            margin: 20px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            font-size: 14px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                font-size: 20px;
+            }
+
+            button {
+                padding: 8px 16px;
+                margin: 8px;
+            }
+
+            input[type="number"] {
+                width: 50px;
+            }
+        }
+
+        .container {
+            max-width: 100%;
+        }
+        .stroke-main-700 {
+    stroke: #107a40;
+}
+.fill-main-700 {
+    fill: #107a40;
+}
+
+    </style>
+</head>
+
+<body>
+    <header>
+
+
+
+
+
+        <div class="flex justify-start items-center"><svg width="376" height="72" viewBox="0 0 376 72"
+                xmlns="http://www.w3.org/2000/svg" class="stroke-main-700 fill-main-700 h-28">
+                <g clip-path="url(#clip0_8_1174)">
+                    <path
+                        d="M6.52179 20.9262V71.2833H19.5425V20.9262H6.52179ZM44.3818 1.4334C42.6498 0.9835 40.8662 0.765704 39.0773 0.785683H0L0.278577 1.4334L6.52179 15.8978H39.0773C41.2525 15.8978 42.3389 17.5739 42.3363 20.9262V51.1466C42.3363 54.4963 41.25 56.1725 39.0773 56.175H22.7938V71.2833H39.0773C40.9599 71.3049 42.8363 71.0637 44.6527 70.5666C51.7915 68.5046 55.3596 62.0313 55.357 51.1466V20.9262C55.357 9.91121 51.6986 3.4136 44.3818 1.4334Z">
+                    </path>
+                    <path d="M61.8712 0.785675V71.2833H74.8918V0.785675H61.8712Z"></path>
+                    <path
+                        d="M100.945 31.0176L107.455 46.1143H117.224V71.291H130.249V31.0176H100.945ZM97.6857 0.793348C95.8955 0.773165 94.1106 0.99095 92.3774 1.44105C85.0606 3.41359 81.4047 9.9112 81.4098 20.9339V51.1543C81.4098 62.039 84.9715 68.5123 92.095 70.5743C93.9114 71.0716 95.7878 71.3129 97.6704 71.291H113.95V56.175H97.6857C95.5181 56.175 94.4343 54.4989 94.4343 51.1466V20.9262C94.4343 17.5739 95.5181 15.8978 97.6857 15.8978H130.249V0.785675L97.6857 0.793348Z">
+                    </path>
+                    <path d="M136.759 0.785675V71.2833H149.78V0.785675H136.759Z"></path>
+                    <path
+                        d="M197.97 0.785675L197.756 1.43339L187.522 32.6119L194.33 53.4538L201.878 30.8949V71.2833H214.91V0.785675H197.97ZM173.444 1.43339L173.23 0.785675H156.29V71.2833H169.322V30.8949L182.614 70.5666L183.095 72H188.098L188.582 70.5666L192.322 59.3983L173.444 1.43339Z">
+                    </path>
+                    <path
+                        d="M271.078 70.5666L247.914 1.4334L247.433 0H242.472L241.987 1.4334L238.221 12.6745L257.103 70.5666L257.336 71.2833H271.33L271.078 70.5666ZM236.217 18.619L218.816 70.5666L218.571 71.2833H232.577L232.809 70.5666L243.025 39.4494L236.217 18.619Z">
+                    </path>
+                    <path
+                        d="M309.1 1.4334C307.367 0.983518 305.582 0.765726 303.792 0.785683V15.8978C305.967 15.8978 307.053 17.5739 307.051 20.9262V31.0176H320.075V20.9262C320.075 9.91121 316.417 3.4136 309.1 1.4334ZM307.051 41.0782V51.1466C307.051 54.4963 305.965 56.1725 303.792 56.175H290.771V71.2833H303.792C305.674 71.3052 307.551 71.064 309.367 70.5666C316.509 68.5046 320.078 62.0313 320.075 51.1466V41.0782H307.051ZM287.508 0.785683C285.72 0.765704 283.936 0.9835 282.204 1.4334C274.895 3.40593 271.239 9.90354 271.236 20.9262V51.1466C271.236 62.0313 274.798 68.5046 281.922 70.5666C283.738 71.0625 285.614 71.3036 287.497 71.2833V56.175C285.334 56.175 284.252 54.4989 284.249 51.1466V20.9262C284.249 17.5739 285.332 15.8978 287.497 15.8978H300.529V0.785683H287.508Z">
+                    </path>
+                    <path
+                        d="M362.4 0.785675V31.0176H342.865L349.379 46.1143H362.4V71.291H375.432V0.785675H362.4ZM326.586 0.785675V71.2833H339.599V0.785675H326.586Z">
+                    </path>
+                </g>
+                <defs>
+                    <clipPath id="clip0_8_1174">
+                        <rect width="375.429" height="72" fill="white"></rect>
+                    </clipPath>
+                </defs>
+            </svg></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </header>
+    <div class="container">
+        <div class="upload-section">
+            <h2>Upload Your Image</h2>
+            <input type="file" id="imageUpload" accept="image/* ">
+        </div>
+        <div class="preview">
+            <h3>Preview</h3>
+            <canvas id="imageCanvas"></canvas>
+        </div>
+<div>
+        <h3>Set Border</h3>
+        <label for="borderWidth">Width:</label>
+        <input type="number" id="borderWidth" min="0" max="50" value="4">
+        <label for="borderColor">Color:</label>
+        <input type="color" id="borderColor" value="#000000">
+        <button onclick="applyBorder()">Apply Border</button>
+    </div>
+    <div class="download-button">
+        <button onclick="downloadImage()">Download Image</button>
+    </div>
+    </div>
+
+    <footer>
+        © 2025 Your Website Name. All rights reserved.
+    </footer>
+
+    <script>
+        const imageUpload = document.getElementById('imageUpload');
+        const imageCanvas = document.getElementById('imageCanvas');
+        const ctx = imageCanvas.getContext('2d');
+        const borderWidthInput = document.getElementById('borderWidth');
+        const borderColorInput = document.getElementById('borderColor');
+
+        let uploadedImage = null;
+
+        imageUpload.addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const img = new Image();
+                    img.onload = function () {
+                        const maxWidth = 800;
+                        const aspectRatio = img.width / img.height;
+                        const newWidth = Math.min(img.width, maxWidth);
+                        const newHeight = newWidth / aspectRatio;
+
+                        imageCanvas.width = newWidth;
+                        imageCanvas.height = newHeight;
+
+                        ctx.drawImage(img, 0, 0, newWidth, newHeight);
+                        uploadedImage = img;
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function applyBorder() {
+            if (!uploadedImage) return alert('Please upload an image first!');
+
+            const borderWidth = parseInt(borderWidthInput.value, 10);
+            const borderColor = borderColorInput.value;
+
+            const canvasWidth = imageCanvas.width + borderWidth * 2;
+            const canvasHeight = imageCanvas.height + borderWidth * 2;
+
+            const tempCanvas = document.createElement('canvas');
+            const tempCtx = tempCanvas.getContext('2d');
+
+            tempCanvas.width = canvasWidth;
+            tempCanvas.height = canvasHeight;
+
+            // Fill border
+            tempCtx.fillStyle = borderColor;
+            tempCtx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+            // Draw image
+            tempCtx.drawImage(imageCanvas, borderWidth, borderWidth);
+
+            imageCanvas.width = canvasWidth;
+            imageCanvas.height = canvasHeight;
+
+            ctx.drawImage(tempCanvas, 0, 0);
+        }
+
+        function downloadImage() {
+            if (!uploadedImage) return alert('Please upload an image first!');
+
+            const link = document.createElement('a');
+            link.download = 'image_with_border.png';
+            link.href = imageCanvas.toDataURL();
+            link.click();
+        }
+    </script>
+</body>
+
+</html>
